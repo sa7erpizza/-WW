@@ -102,7 +102,7 @@ ${prefix}bk > رسالة جماعيه مع
 ${prefix}rolebc [everyone or @role] >  راسال رساله جماعيه لرتبه محدده
 ${prefix}role @user [rank] > لأعطاء رتبة لعضو معين
 ${prefix}roleremove @user [rank] > لازالة الرتبة من شخص معين
-${prefix}give all [rank] / لأعطاء رتبة للجميع
+${prefix}give all [rank] > لأعطاء رتبة للجميع
 ${prefix}give humans <rank> > لأعطاء رتبة للاشخاص فقط
 ${prefix}give bots [rank] > لأعطاء رتبة لجميع البوتات
 ${prefix}hchannel > اخفاء الشات
@@ -116,13 +116,13 @@ ${prefix}ban @user [reason] > حضر الشخص من السيرفر
 ${prefix}mutechannel > تقفيل الشات
 ${prefix}unmutechannel > فتح الشات
 ${prefix}dc > مسح كل الرومات
-${prefix}dr > <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
+${prefix}dr > [مسح كل الرانكات [لازم تكون رانك البوت فوق كل الرانكات
 ${prefix}ct [name] > انشاء شات
 ${prefix}cv [name] > انشاء رووم فويس
-${prefix}temp / لانشاء روم مؤقت
+${prefix}temp > لانشاء روم مؤقت
 ${prefix}delet [name] > مسح الشات او الرووم فويس
-${prefix}make [number] / ينشا لك الوان مع كم الوان تبي
-${prefix}color [number] / لختيار لون
+${prefix}make [number] > ينشا لك الوان مع كم الوان تبي
+${prefix}color [number] > لختيار لون
 ${prefix}deletecolors [number] > لحذف الالوان
 **
    `,`
@@ -711,11 +711,11 @@ message.channel.send(
 
 
    client.on('message', message => {
-     if (message.content === "support") {
+     if (message.content === "2support") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/xA8s2AU**")
+  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/5gBWaH8**")
      
      
   message.channel.sendEmbed(embed);
@@ -784,7 +784,7 @@ message.react("?")
  }}});
  client.on('message', message => {
   if(!message.channel.guild) return;
-if(message.content.startsWith('abc')) {
+if(message.content.startsWith('2bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
