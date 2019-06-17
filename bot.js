@@ -27,7 +27,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = 'a';
+const prefix = '2';
 var table = require('table').table
 var ti={}  
 ,spee={}
@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['ahelp','Type ahelp'];
+    var setGame = ['2help','soon'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -60,7 +60,7 @@ client.on('ready', function(){
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
     let pages = [`**
-        ***__General orders__***
+        **الاوامر العامة**
 **
 ${prefix}allbots/لعرض جميع البوتات الي بالسيرفر
 ${prefix}server/يعرض لك معلومات عن السيرفر
@@ -94,7 +94,7 @@ ${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت
 **
   `
 ,`
-        ***__Administrative Orders__***
+        **الاوامر الادارية**
 **
 ${prefix}move @user /  لسحب الشخص الى روومك
 ${prefix}bc / رسالة جماعية الى كل اعضاء السيرفر
@@ -126,7 +126,7 @@ ${prefix}color <number> / لختيار لون
 ${prefix}deletecolors <number> / لحذف الالوان
 **
    `,`
-        ***__Music orders__***
+        **اوامر الموسيقي**
 **
 ${prefix}play / لتشغيل أغنية برآبط أو بأسم
 ${prefix}skip / لتجآوز الأغنية الحآلية
@@ -137,7 +137,7 @@ ${prefix}stop / لإخرآج البوت من الروم
 ${prefix}np / لمعرفة الأغنية المشغلة حآليا
 ${prefix}queue / لمعرفة قآئمة التشغيل
 **
-        ***__Games orders__***
+        **اوامر الالعاب**
  **       
 ${prefix}rps / حجر ورقة مقص
 ${prefix}speed / اسرع كتابة
