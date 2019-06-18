@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 15000 ;
-    var setGame = [`2help | 2inv | 2support ♥`,`USERS ► ${client.users.size}`,`SERVERS ► ${client.guilds.size}`,`soon 75%`];
+    var setGame = [`2help | 2inv | 2support ♥`,`USERS ► ${client.users.size}`,`SERVERS ► ${client.guilds.size}`,`soon 82%`];
     var i = -1;
     var j = 0;
     setInterval(function (){
