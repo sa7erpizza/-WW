@@ -934,12 +934,7 @@ client.on('message' , message => {
 if (message.author.bot) return;
 if (message.content.startsWith(prefix + "contact")) {
 if (!message.channel.guild) return;
-
-
-
 let args = message.content.split(" ").slice(1).join(" ");
-
-
 client.users.get("436868598300934146").send(
     "\n" + "**" + "? السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
@@ -952,15 +947,24 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By : 2.B Bot")
-                                                
-
+     .setFooter("By : 2.B Bot")                                                
 message.channel.send(embed);
-
-
-}
-    
+}    
 });
+
+client.on("message", message => {
+if(message.content.startsWith(prefix + `contact`)){
+if(message.author.bot || message.channel.type == 'dm') return;
+let args = message.content.split(" ").slice(1);
+let msg = args.join(' ');
+let dev = client.users.get("436868598300934146"); //Your id
+if(!args) return message.reply("يجب كتابة الرسالة");
+dev.send(`• | User: **${message.author.tag}**\n\n• | Message: **${msg}**`).then(() =>{
+message.channel.send(`Your message has been successfully delivered to the bot owner`)
+}).catch(console.error);
+}
+});
+
 client.on('message', message => {
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
