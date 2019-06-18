@@ -291,7 +291,7 @@ if (message.content === (prefix + "help-music")) {
   const embed = new Discord.RichEmbed() 
       .setColor("RANDOM")
       .setDescription(`**
-   ❖════════════════ :microphone:  اوامر الالعاب :microphone:  ════════════════❖
+   ❖════════════════ :microphone:  اوامر الاغاني :microphone:  ════════════════❖
 	
 ❖ ${prefix}play ➾ لتشغيل أغنية برآبط أو بأسم
 
