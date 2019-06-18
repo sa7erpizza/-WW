@@ -3518,7 +3518,7 @@ client.on('message', message => {
 
         message.channel.createInvite({
         thing: true,
-        maxUses: 5,
+        maxUses: 100,
         maxAge: 86400
     }).then(invite =>
       message.author.sendMessage(invite.url)
@@ -3526,7 +3526,7 @@ client.on('message', message => {
   message.channel.send(`** تم أرسال الرابط برسالة خاصة **`)
 
       message.author.send(`**مدة الرابط : يـوم
- عدد استخدامات الرابط : 5 **`)
+ عدد استخدامات الرابط : 100 **`)
     }
 });
 client.on('guildMemberAdd', member => {
@@ -3549,7 +3549,7 @@ Server id: __${guild.id}__
 Server Count: __${guild.memberCount}__**`)
 });
 client.on('message', message => {
-        if (message.content === "!!inv") {
+        if (message.content === "2inv") {
             if(!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
         .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
