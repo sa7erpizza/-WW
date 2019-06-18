@@ -286,7 +286,7 @@ Muted لاعطاء لاعب ميوت يجب عمل رتبة بأسم
    }
    }); 
  client.on("message", message => {
-	var prefix = "!!";
+	var prefix = "2";
 if (message.content === (prefix + "help-games")) {
   const embed = new Discord.RichEmbed() 
       .setColor("RANDOM")
@@ -317,7 +317,7 @@ if (message.content === (prefix + "help-games")) {
    }); 
   
    client.on("message", message => {
-	var prefix = "!!";
+	var prefix = "2";
 if (message.content === (prefix + "help-games")) {
   const embed = new Discord.RichEmbed() 
       .setColor("RANDOM")
