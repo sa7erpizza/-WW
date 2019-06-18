@@ -936,11 +936,11 @@ if (message.content.startsWith(prefix + "contact")) {
 if (!message.channel.guild) return;
 let args = message.content.split(" ").slice(1).join(" ");
 client.users.get("436868598300934146").send(
-    "\n" + "**" + "? السيرفر :" + "**" +
+    "\n" + "**" + ":busts_in_silhouette:  السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
-    "\n" + "**" + " ? المرسل : " + "**" +
+    "\n" + "**" + ":speaking_head:  المرسل : " + "**" +
     "\n" + "**" + "» " + message.author.tag + "**" +
-    "\n" + "**" + " ? الرسالة : " + "**" +
+    "\n" + "**" + ":incoming_envelope:  الرسالة : " + "**" +
     "\n" + "**" + args + "**")
 
 let embed = new Discord.RichEmbed()
