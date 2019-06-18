@@ -70,7 +70,7 @@ client.on("message", message => {
 
 ❖ 2help-puplic ➾ اوامر عامة :comet:
 
-❖ 2help-admin ➾ اوامر ادارة السيرفر :gear:
+❖ 2help-admin ➾ اوامر ادارة السيرفر :gear: قيد التصحيح
 
 ❖ 2help-games ➾ اوامر الالعاب :video_game: 
 
@@ -215,12 +215,10 @@ if (message.content === (prefix + "help-admin")) {
       .setColor("RANDOM")
       .setDescription(`**
    ❖════════════════ :comet: الاوامر الادارية :comet: ════════════════❖
-
+قيد التصحيح 
 ❖ ${prefix}move @user ➾ لسحب الشخص الى روومك
 
 ❖ ${prefix}bc ➾ رسالة جماعية الى كل اعضاء السيرفر
-
-❖ ${prefix}bk ➾ رسالة جماعيه مع
 
 ❖ ${prefix}rolebc [everyone or @role] ➾  راسال رساله جماعيه لرتبه محدده
 
@@ -273,7 +271,6 @@ if (message.content === (prefix + "help-admin")) {
                ♣ IMPORTANT  |  مهم ♣
 
 welcome لتفعيل خاصية الترحيب والمغادرة يجب عمل روم بأسم
-Muted لاعطاء لاعب ميوت يجب عمل رتبة بأسم
 
 ❖════════════════════════════════════════════❖
 **`)
@@ -1034,51 +1031,7 @@ msg.delete();
 })
 }
 });
-client.on('message', message => {
-   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'bk')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let BcList = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`برودكاست بـ امبد ??\nبرودكاست بدون امبد? \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
-if (!args) return message.reply('**يجب عليك كتابة كلمة او ??ملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
-msg.react('??')
-.then(() => msg.react('?'))
-.then(() =>msg.react('??'))
- 
-let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-let NormalBcFilter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
- 
-let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
-let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
- 
-EmbedBc.on("collect", r => {
-message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-var bc = new
-Discord.RichEmbed()
-.setColor('RANDOM')
-.setDescription(`Message : ${args}`)
-.setAuthor(`Server : ${message.guild.name}`)
-.setFooter(`Sender : ${message.author.username}`)
-.setThumbnail(message.author.avatarURL)
-m.send({ embed: bc })
-msg.delete();
-})
-})
-NormalBc.on("collect", r => {
-  message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-m.send(args);
-msg.delete();
-})
-})
-})
-}
-});
+
 client.on('message' , message => {
       if(message.author.bot) return;
      
@@ -3472,7 +3425,7 @@ possibleInvites.push([inviteCount, exec]);
      }
        });
 client.on('message' , async message => {
-            if(message.content.startsWith(prefix + "ads")) {
+            if(message.content.startsWith(prefix + "2ds")) {
      await message.channel.send("`ارسال الرساله .`").then(e => {
     let filter = m => m.author.id === message.author.id
     let tests = '';
@@ -3914,65 +3867,6 @@ var client= new Discord.RichEmbed()
 message.channel.sendEmbed(client);
 message.react("??")
 }
-});
-
-client.on('message', async message =>{
-  if (message.author.boss) return;
-	var prefix = "2";
-
-if (!message.content.startsWith(prefix)) return;
-	let command = message.content.split(" ")[0];
-	 command = command.slice(prefix.length);
-	let args = message.content.split(" ").slice(1);
-	if (command == "mute") {
-		if (!message.channel.guild) return;
-		if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
-		if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
-		let user = message.mentions.users.first();
-		let muteRole = message.guild.roles.find("name", "Muted");
-		if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
-		if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
-		let reason = message.content.split(" ").slice(2).join(" ");
-		message.guild.member(user).addRole(muteRole);
-		const muteembed = new Discord.RichEmbed()
-		.setColor("RANDOM")
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setThumbnail(user.displayAvatarURL)
-		.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-		.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-		.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
-		.addField("User", user, true)
-		message.channel.send({embed : muteembed});
-		var muteembeddm = new Discord.RichEmbed()
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setDescription(`      
-${user} انت معاقب بميوت كتابي بسبب مخالفة القوانين
-${message.author.tag} تمت معاقبتك بواسطة
-[ ${reason} ] : السبب
-اذا كانت العقوبة عن طريق الخطأ تكلم مع المسؤلين
-`)
-		.setFooter(`في سيرفر : ${message.guild.name}`)
-		.setColor("RANDOM")
-	user.send( muteembeddm);
-  }
-if(command === `unmute`) {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("**ليس لديك صلاحية لفك عن الشخص ميوت**:x: ").then(m => m.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("**ما عندي برمشن**").then(msg => msg.delete(6000))
-
-  let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
-
-  let role = message.guild.roles.find (r => r.name === "Muted");
-  
-  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
-
-  await toMute.removeRole(role)
-  message.channel.sendMessage("**لقد تم فك الميوت عن شخص بنجاح**:white_check_mark:");
-
-  return;
-
-  }
-
 });
  
 
