@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 15000 ;
-    var setGame = [`2help | 2inv | 2support ♥`,`USERS ► ${client.users.size}`,`SERVERS ► ${client.guilds.size}`,`soon 65%`];
+    var setGame = [`2help | 2inv | 2support ♥`,`USERS ► ${client.users.size}`,`SERVERS ► ${client.guilds.size}`,`soon 75%`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -50,148 +50,365 @@ client.on('ready', function(){
     }, ms);
 
 })
-client.on('message', message => {
-if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
-    let pages = [`**
-        **الاوامر العامة**
 
-${prefix}allbots > لعرض جميع البوتات الي بالسيرفر
-${prefix}server > يعرض لك معلومات عن السيرفر
-${prefix}bot > يعرض لك كل معلومات البوت
-${prefix}count > يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-${prefix}invites > يعرض لك  عدد انفايتاتك بالسيرفر 
-${prefix}invinfo [invitelink here] > لمعلومات عن الدعوه
- مثال : invinfo m82n8P
-${prefix}invite-codes > يعرض لك روابط الانفايتات حكك في السيرفر 
-${prefix}cal > اله حاسبة
-${prefix}trans [language] [any thing] > يترجم لك الي تبيه من اي لغة
-${prefix}short > يختصر لك رابط كبير الى رابط صغير
-${prefix}tag > يكتب لك الكلمة بشكل جميل وكبير
-${prefix}google > للبحث في قوقل عن طريق الدسكورد
-${prefix}perms > يعرض لك برمشناتك بالسيرفر
-${prefix}z5rf > يزخرف لك كلمة او جملة
-${prefix}rooms > يعرض لك كل الرومات الي بالسيرفر مع عددها
-${prefix}roles > يعرض لك كل الرانكات بالسيرفر بشكل جميل
-${prefix}emojilist > يعرض لك كل الايموجيات الي بالسيرفر
-${prefix}say > يكرر الكلام الي تكتبو
-${prefix}image > صورة السيرفر
-${prefix}members > عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
-${prefix}id > معلومات عنك
-${prefix}bans > عدد الاشخاص المبندة 
-${prefix}avatar > صورتك او صورة الي تمنشنو
-${prefix}embed > يكرر الي تقولو بشكل حلو
-${prefix}emoji [any things] > لتحويل اي كلمه تقولها الي ايموجي
-${prefix}inv > لدعوة البوت الى سيرفرك
-${prefix}support > سيرفر الدعم
-${prefix}contact > ارسال اقتراح او لمراسلة صاحب البوت
-**
-  `
-,`
-        **الاوامر الادارية**
-**
-${prefix}move @user > لسحب الشخص الى روومك
-${prefix}bc > رسالة جماعية الى كل اعضاء السيرفر
-${prefix}bk > رسالة جماعيه مع
-${prefix}rolebc [everyone or @role] >  راسال رساله جماعيه لرتبه محدده
-${prefix}role @user [rank] > لأعطاء رتبة لعضو معين
-${prefix}roleremove @user [rank] > لازالة الرتبة من شخص معين
-${prefix}give all [rank] > لأعطاء رتبة للجميع
-${prefix}give humans <rank> > لأعطاء رتبة للاشخاص فقط
-${prefix}give bots [rank] > لأعطاء رتبة لجميع البوتات
-${prefix}hchannel > اخفاء الشات
-${prefix}schannel > اضهار الشات المخفية
-${prefix}clr [numbr] > مسح الشات بعدد
-${prefix}clear > مسح الشات
-${prefix}mute @user [time] > اعطاء العضو ميوت 
-${prefix}unmute @user > لفك الميوت عن الشخص 
-${prefix}kick @user [reason] > طرد الشخص من السيرفر
-${prefix}ban @user [reason] > حضر الشخص من السيرفر
-${prefix}mutechannel > تقفيل الشات
-${prefix}unmutechannel > فتح الشات
-${prefix}dc > مسح كل الرومات
-${prefix}dr > [مسح كل الرانكات [لازم تكون رانك البوت فوق كل الرانكات
-${prefix}ct [name] > انشاء شات
-${prefix}cv [name] > انشاء رووم فويس
-${prefix}temp > لانشاء روم مؤقت
-${prefix}delet [name] > مسح الشات او الرووم فويس
-${prefix}make [number] > ينشا لك الوان مع كم الوان تبي
-${prefix}color [number] > لختيار لون
-${prefix}deletecolors [number] > لحذف الالوان
-**
-   `,`
-        **اوامر الموسيقي**
-**
-${prefix}play > لتشغيل أغنية برآبط أو بأسم
-${prefix}skip > لتجآوز الأغنية الحآلية
-${prefix}pause > إيقآف الأغنية مؤقتا
-${prefix}resume > لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-${prefix}vol > لتغيير درجة الصوت 100 - 0
-${prefix}stop > لإخرآج البوت من الروم
-${prefix}np > لمعرفة الأغنية المشغلة حآليا
-${prefix}queue > لمعرفة قآئمة التشغيل
-**
-        **اوامر الالعاب**
- **       
-${prefix}rps > حجر ورقة مقص
-${prefix}speed > اسرع كتابة
-${prefix}quas > اسئلة عامة
-${prefix}نكت < نكت 
-${prefix}لعبة فكك < فكك
-${prefix}عواصم عشوائي < عواصم
-${prefix}لعبة كت تويت < كت تويت
-${prefix}roll [number] / قرعة
-${prefix}لو خيروك بطريقة حلوة < لو خيروك
-${prefix}لعبة مريم < مريم
-${prefix}فوائد ونصائح < هل تعلم
-${prefix}يعطيك عقابات قاسية < عقاب 
-=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
-welcome يتم الترحيب فى روم باسم
-G.setwelcomer <text channel name> لاختيار روم للترحيب
-${prefix}voiceonline / لتفعيل روم الفويس اونلاين
-**
+client.on("message", message => {
+	var prefix = "2";
+ if (message.content === (prefix + "help")) {
+  const embed = new Discord.RichEmbed()  
+      .setColor("#ff0000") 
+      .setDescription(`**
+╭━━━╮╭━━╮╱╭━━╮╭━━━┳━━━━╮
+┃╭━╮┃┃╭╮┃╱┃╭╮┃┃╭━╮┃╭╮╭╮┃
+╰╯╭╯┃┃╰╯╰╮┃╰╯╰┫┃╱┃┣╯┃┃╰╯
+╭━╯╭╯┃╭━╮┃┃╭━╮┃┃╱┃┃╱┃┃
+┃┃╰━┳┫╰━╯┃┃╰━╯┃╰━╯┃╱┃┃
+╰━━━┻┻━━━╯╰━━━┻━━━╯╱╰╯
+
+❖═══════════════ اختر من فضلك ═══════════════❖
+ 
+❖ soon
+
+❖ 2help-puplic ➾ اوامر عامة :comet:
+
+❖ 2help-admin ➾ اوامر ادارة السيرفر :gear:
+
+❖ 2help-games ➾ اوامر الالعاب :video_game: 
+
+❖ 2help-music ➾ اوامر الموسيقي :microphone: 
+
+BY : !A۪۫۰۰۪۫I۰۰۪۫R۰ ۰۪۫E۰۰۪۫G۰۰۪۫Y#3925
+❖══════════════════════════════════════════❖
+**`)
+   message.channel.sendEmbed(embed)
+    
+   }
+   }); 
+  
+       client.on("message", message => {
+	var prefix = "2";
+if (message.content === (prefix + "soon")) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("RANDOM")
+      .setDescription(`**
+╭━━━╮╭━━╮╱╭━━╮╭━━━┳━━━━╮
+┃╭━╮┃┃╭╮┃╱┃╭╮┃┃╭━╮┃╭╮╭╮┃
+╰╯╭╯┃┃╰╯╰╮┃╰╯╰┫┃╱┃┣╯┃┃╰╯
+╭━╯╭╯┃╭━╮┃┃╭━╮┃┃╱┃┃╱┃┃
+┃┃╰━┳┫╰━╯┃┃╰━╯┃╰━╯┃╱┃┃
+╰━━━┻┻━━━╯╰━━━┻━━━╯╱╰╯
+
+❖═══════════════ • المميزات • ═══════════════❖
+
+1 • يتميز البوت بالعديد من الاومر العاب - عامة - ادرية
+
+2 • اكثر من 20 لعبة
+
+3 • يتم التحديث وصيانة البوت باستمرار
+
+4 • دعم فني سريع الرد
+
+5 • يوجد بالبوت رد تلقائي
+
+6 • الترحيب والمغادره
+
+7 • سيكون البوت بطيئ بعض الشئ ذلك لانه ليس مرفوع علي خادم سيتم رفعه علي خادم بأسرع وقت
+
+8 • سنتقبل اقتراحاتكم او المشاكل البوت عبر هذا الامر
+• !!OWSEND
+
+9 • يتم تفقد اوامر البوت والمشاكل فيه يوميا
+
+10 •  حماية من النشر
+ADMINISTRATOR اللي يقدر ينشر سيرفرات يجب ان يكون معه خاصية			   
+
+══════════════════════════════════════════
+
+• لاضافة البوت : https://discordapp.com/oauth2/authorize?client_id=487367967726764042&permissions=8&scope=bot
+• او الامر : !!inv
+
+• سيرفر الدعم الفني للبوت : https://discord.gg/EYEG2W2
+• او الامر : !!support
+
+• واخيرا نتمني ان يعجبكم البوت , وعام دراسي سعيد , ومع تحيات اصحاب البوت
+
+❖══════════════════════════════════════════❖
+	  **`)
+   message.author.sendEmbed(embed)
+    
+   }
+   });  
    
-`]
-    let page = 1;
+client.on("message", message => {
+	var prefix = "2";
+if (message.content === (prefix + "help-puplic")) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("RANDOM")
+      .setDescription(`**
+   ❖════════════════ :comet: الاوامر العامة :comet: ════════════════❖
 
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setFooter(`Page ${page} of ${pages.length}`)
-    .setDescription(pages[page-1])
+❖ ${prefix}allbots ➾ لعرض جميع البوتات الي بالسيرفر
 
-    message.author.sendEmbed(embed).then(msg => {
+❖ ${prefix}server ➾ يعرض لك معلومات عن السيرفر
 
-        msg.react('⏮').then( r => {
-            msg.react('⏭')
+❖ ${prefix}bot ➾ يعرض لك كل معلومات البوت
 
+❖ ${prefix}count ➾ يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏮' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏭' && user.id === message.author.id;
+❖ ${prefix}invites ➾ يعرض لك  عدد انفايتاتك بالسيرفر 
 
+❖ ${prefix}invinfo [invitelink here] ➾ لمعلومات عن الدعوه
+مثال : invinfo m82n8P
 
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
-        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+❖ ${prefix}invite-codes ➾ يعرض لك روابط الانفايتات حكك في السيرفر 
 
+❖ ${prefix}cal ➾ اله حاسبة
 
+❖ ${prefix}trans [language] [any thing] ➾ يترجم لك الي تبيه من اي لغة
 
-        backwards.on('collect', r => {
-            if (page === 1) return;
-            page--;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        forwards.on('collect', r => {
-            if (page === pages.length) return;
-      
-      page++;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        })
-    })
+❖ ${prefix}short ➾ يختصر لك رابط كبير الى رابط صغير
+
+❖ ${prefix}tag ➾ يكتب لك الكلمة بشكل جميل وكبير
+
+❖ ${prefix}google ➾ للبحث في قوقل عن طريق الدسكورد
+
+❖ ${prefix}perms ➾ يعرض لك برمشناتك بالسيرفر
+
+❖ ${prefix}z5rf ➾ يزخرف لك كلمة او جملة
+
+❖ ${prefix}rooms ➾ يعرض لك كل الرومات الي بالسيرفر مع عددها
+
+❖ ${prefix}roles ➾ يعرض لك كل الرانكات بالسيرفر بشكل جميل
+
+❖ ${prefix}emojilist ➾ يعرض لك كل الايموجيات الي بالسيرفر
+
+❖ ${prefix}say ➾ يكرر الكلام الي تكتبو
+
+❖ ${prefix}image ➾ صورة السيرفر
+
+❖ ${prefix}members ➾ عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
+
+❖ ${prefix}id ➾ معلومات عنك
+
+❖ ${prefix}bans ➾ عدد الاشخاص المبندة 
+
+❖ ${prefix}avatar ➾ صورتك او صورة الي تمنشنو
+
+❖ ${prefix}embed ➾ يكرر الي تقولو بشكل حلو
+
+❖ ${prefix}emoji [any things] > لتحويل اي كلمه تقولها الي ايموجي
+
+❖ ${prefix}color [number] ➾ لختيار لون
+
+❖ ${prefix}inv ➾ لدعوة البوت الى سيرفرك
+
+❖ ${prefix}support ➾ سيرفر الدعم
+
+❖ ${prefix}contact ➾ ارسال اقتراح او لمراسلة صاحب البوت
+
+❖════════════════════════════════════════════❖
+**`)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
+
+client.on("message", message => {
+	var prefix = "2";
+if (message.content === (prefix + "help-admin")) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("RANDOM")
+      .setDescription(`**
+   ❖════════════════ :comet: الاوامر الادارية :comet: ════════════════❖
+
+❖ ${prefix}move @user ➾ لسحب الشخص الى روومك
+
+❖ ${prefix}bc ➾ رسالة جماعية الى كل اعضاء السيرفر
+
+❖ ${prefix}bk ➾ رسالة جماعيه مع
+
+❖ ${prefix}rolebc [everyone or @role] ➾  راسال رساله جماعيه لرتبه محدده
+
+❖ ${prefix}role @user [rank] ➾ لأعطاء رتبة لعضو معين
+
+❖ ${prefix}roleremove @user [rank] ➾ لازالة الرتبة من شخص معين
+
+❖ ${prefix}give all [rank] ➾ لأعطاء رتبة للجميع
+
+❖ ${prefix}give humans <rank> ➾ لأعطاء رتبة للاشخاص فقط
+
+❖ ${prefix}give bots [rank] ➾ لأعطاء رتبة لجميع البوتات
+
+❖ ${prefix}hchannel ➾ اخفاء الشات
+
+❖ ${prefix}schannel ➾ اضهار الشات المخفية
+
+❖ ${prefix}clr [numbr] ➾ مسح الشات بعدد
+
+❖ ${prefix}clear ➾ مسح الشات
+
+❖ ${prefix}mute @user [time] ➾ اعطاء العضو ميوت 
+
+❖ ${prefix}unmute @user ➾ لفك الميوت عن الشخص 
+
+❖ ${prefix}kick @user [reason] ➾ طرد الشخص من السيرفر
+
+❖ ${prefix}ban @user [reason] ➾ حضر الشخص من السيرفر
+
+❖ ${prefix}mutechannel ➾ تقفيل الشات
+
+❖ ${prefix}unmutechannel ➾ فتح الشات
+
+❖ ${prefix}dc ➾ مسح كل الرومات
+
+❖ ${prefix}dr ➾ [مسح كل الرانكات [لازم تكون رانك البوت فوق كل الرانكات
+
+❖ ${prefix}ct [name] ➾ انشاء شات
+
+❖ ${prefix}cv [name] ➾ انشاء رووم فويس
+
+❖ ${prefix}temp ➾ لانشاء روم مؤقت
+
+❖ ${prefix}delet [name] ➾ مسح الشات او الرووم فويس
+
+❖ ${prefix}make [number] ➾ ينشا لك الوان مع كم الوان تبي
+
+❖ ${prefix}deletecolors [number] ➾ لحذف الالوان
+❖════════════════════════════════════════════❖
+               ♣ IMPORTANT  |  مهم ♣
+
+welcome لتفعيل خاصية الترحيب والمغادرة يجب عمل روم بأسم
+Muted لاعطاء لاعب ميوت يجب عمل رتبة بأسم
+
+❖════════════════════════════════════════════❖
+**`)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
+ client.on("message", message => {
+	var prefix = "!!";
+if (message.content === (prefix + "help-games")) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("RANDOM")
+      .setDescription(`**
+   ❖════════════════ :microphone:  اوامر الالعاب :microphone:  ════════════════❖
+	
+❖ ${prefix}play ➾ لتشغيل أغنية برآبط أو بأسم
+
+❖ ${prefix}skip ➾ لتجآوز الأغنية الحآلية
+
+❖ ${prefix}pause ➾ إيقآف الأغنية مؤقتا
+
+❖ ${prefix}resume ➾ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+
+❖ ${prefix}vol ➾ لتغيير درجة الصوت 100 - 0
+
+❖ ${prefix}stop ➾ لإخرآج البوت من الروم
+
+❖ ${prefix}np ➾ لمعرفة الأغنية المشغلة حآليا
+
+❖ ${prefix}queue ➾ لمعرفة قآئمة التشغيل
+
+❖════════════════════════════════════════════❖
+**`)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
+  
+   client.on("message", message => {
+	var prefix = "!!";
+if (message.content === (prefix + "help-games")) {
+  const embed = new Discord.RichEmbed() 
+      .setColor("RANDOM")
+      .setDescription(`**
+   ❖════════════════ :video_game: اوامر الالعاب :video_game: ════════════════❖
+	
+❖ ${prefix}rps ➾ حجر ورقة مقص
+
+❖ ${prefix}speed ➾ اسرع كتابة
+
+❖ ${prefix}quas ➾ اسئلة عامة
+
+❖ ${prefix}نكت ➾ نكت 
+
+❖ ${prefix}لعبة فكك ➾ فكك
+
+❖ ${prefix}عواصم عشوائي ➾ عواصم
+
+❖ ${prefix}لعبة كت تويت ➾ كت تويت
+
+❖ ${prefix}roll [number] ➾ قرعة
+
+❖ ${prefix}لو خيروك بطريقة حلوة ➾ لو خيروك
+
+❖ ${prefix}لعبة مريم ➾ مريم
+
+❖ ${prefix}فوائد ونصائح ➾ هل تعلم
+
+❖ ${prefix}يعطيك عقابات قاسية ➾ عقاب 
+
+❖════════════════════════════════════════════❖
+**`)
+   message.author.sendEmbed(embed)
+    
+   }
+   }); 
+
+client.on('message', message => {
+var prefix = "2";
+     if (message.content === (prefix + "help-info")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("RANDOM")
+  .addField(":scroll: 2.B" , "**:incoming_envelope: تــم ارســــال الاوامـــــــر في الــخـــاص**")
+  message.channel.sendEmbed(embed);
     }
-}); 
+});
+
+client.on('message', message => {
+var prefix = "2";
+     if (message.content === (prefix + "help-admin")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("RANDOM")
+  .addField(":scroll: 2.B" , "**:incoming_envelope: تــم ارســــال الاوامـــــــر في الــخـــاص**")
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+var prefix = "2";	
+     if (message.content === (prefix + "help-games")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("RANDOM")
+  .addField(":scroll: 2.B" , " **:incoming_envelope: تــم ارســــال الاوامـــــــر في الــخـــاص**")
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+var prefix = "2";
+     if (message.content === (prefix + "help-puplic")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("RANDOM")
+  .addField(":scroll: 2.B BOT" , " **:incoming_envelope: تــم ارســــال الاوامـــــــر في الــخـــاص**")
+  message.channel.sendEmbed(embed);
+    }
+});
+ 
+client.on('message', message => {
+var prefix = "2";
+     if (message.content === (prefix + "help-music")) {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("RANDOM")
+  .addField(":scroll: 2.B BOT" , " **:incoming_envelope: تــم ارســــال الاوامـــــــر في الــخـــاص**")
+  message.channel.sendEmbed(embed);
+    }
+});
 
 const credits = JSON.parse(fs.readFileSync("./creditsCode.json", "utf8"));
 const coolDown = new Set();
