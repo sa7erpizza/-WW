@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['2help','soon'];
+    var setGame = ['2help-2support','soon 60%'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -3519,9 +3519,40 @@ client.on("message", (message) => {
         message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!??**`);
     }
 })
+client.on('message', message => {
+    if (!message.guild) return;
+    if (message.content.startsWith("2link")) {
+
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send(`** تم أرسال الرابط برسالة خاصة **`)
+
+      message.author.send(`**مدة الرابط : يـوم
+ عدد استخدامات الرابط : 5 **`)
+    }
+});
 client.on('guildMemberAdd', member => {
     member.createDM().then(function (channel) {
 return channel.send("")
     }
     )});
+client.on('guildCreate', guild => {
+client.channels.get("590332490460299299").send(`✅ **${client.user.tag} دخل سيرفر جديد
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__
+Server id: __${guild.id}__ 
+Server Count: __${guild.memberCount}__**`)
+}); //Codes
+client.on('guildDelete', guild => {
+  client.channels.get("590332490460299299").send(`❎ **${client.user.tag} طلع من سيرفر
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__
+Server id: __${guild.id}__ 
+Server Count: __${guild.memberCount}__**`)
+});
 client.login(process.env.BOT_TOKEN)
