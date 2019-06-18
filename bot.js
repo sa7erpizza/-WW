@@ -101,7 +101,7 @@ if (message.content === (prefix + "soon")) {
 
 1 •  يتميز البوت بأوامر ادمنيه - عامة -اغاني - العاب
 
-2 • 
+2 • قريبا المزيد من التعديلات
 
 3 • يتم التحديث وصيانة البوت باستمرار
 
@@ -113,7 +113,7 @@ if (message.content === (prefix + "soon")) {
 
 7 • البوت 24/24 ساعة
 
-8 • 
+8 • قريبا حماية من النشر
 
 9 • يتم تفقد اوامر البوت والمشاكل فيه يوميا		   
 ══════════════════════════════════════════
@@ -861,13 +861,13 @@ message.channel.send({embed});
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.bans")) {
+    if (message.content.startsWith("2bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`Number of banned persons **${bans.size}** `))
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.avatar")) {
+    if (message.content.startsWith("2avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -927,7 +927,7 @@ message.channel.send(
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/5gBWaH8**")
+  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/rWhAVBw**")
      
      
   message.channel.sendEmbed(embed);
@@ -1508,7 +1508,7 @@ if(bz.content.startsWith(prefix + 'make')) {
        });
 client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == 'G.color'){
+   if(message.content.split(' ')[0] == '2color'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**There's No Color With This Number ** :x: `)
@@ -1678,7 +1678,7 @@ client.on('message', message => {
     if (!points[message.author.id]) points[message.author.id] = { 
         points: 0,
       };
-    if (message.content == "G.ايموجى") { 
+    if (message.content == "2ايموجى") { 
         if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
     
     const type = require('./emojis.json'); 
