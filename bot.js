@@ -34,8 +34,8 @@ var ti={}
 ,attentions={};
 
 client.on('ready', function(){
-    var ms = 60000 ;
-    var setGame = ['2help-2support','soon 60%'];
+    var ms = 15000 ;
+    var setGame = [`2help | 2inv | 2support ♥`,`USERS ► ${client.users.size}`,`SERVERS ► ${client.guilds.size}`,`soon 65%`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -46,17 +46,10 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/barontube`);
+        client.user.setGame(setGame[i],`https://www.twitch.tv/n3k4a`);
     }, ms);
-    console.log(` ????????? |> Name: ${client.user.username}`);
- console.log(` ????????? |> Servers: ${client.guilds.size}`);
- console.log(` ???????????????????? |> Members: ${client.users.size}`);
- console.log(` ????????????????????? |> Channels: ${client.channels.size}`);
- console.log(` ???????????????????? |> Channels: ${client.channels.size}`);
- console.log(` ???????????????????? |> Id: ${client.user.id}`);
- console.log(` ???????????????????`);
- console.log(` ???????????????????`);
-});
+
+})
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
     let pages = [`**
@@ -3555,4 +3548,15 @@ Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
 Server Count: __${guild.memberCount}__**`)
 });
+client.on('message', message => {
+        if (message.content === "!!inv") {
+            if(!message.channel.guild) return;
+        let embed = new Discord.RichEmbed()
+        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
+        .setTitle(`:diamond_shape_with_a_dot_inside: انه طغضا `)
+        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=590110610365087745&permissions=8&scope=bot`)	
+        .setThumbnail("https://cdn.discordapp.com/attachments/488485189761105952/488496596225490944/b8fc07a1-75e6-4dce-b5b0-d018c804277f.png")        
+     message.channel.sendEmbed(embed);
+       }
+   });
 client.login(process.env.BOT_TOKEN)
