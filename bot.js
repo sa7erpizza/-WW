@@ -120,7 +120,6 @@ if (message.content === (prefix + "soon")) {
 
 10 •  حماية من النشر
 ADMINISTRATOR اللي يقدر ينشر سيرفرات يجب ان يكون معه خاصية			   
-
 ══════════════════════════════════════════
 
 • لاضافة البوت : https://discordapp.com/oauth2/authorize?client_id=487367967726764042&permissions=8&scope=bot
@@ -203,8 +202,9 @@ if (message.content === (prefix + "help-puplic")) {
 
 ❖ ${prefix}support ➾ سيرفر الدعم
 
-❖ ${prefix}contact ➾ ارسال اقتراح او لمراسلة صاحب البوت
+❖ ${prefix}link ➾ يرسل لك البوت رابط السيرفر في الخاص
 
+❖ ${prefix}يقول لك البوت اذكار ➾ اذكار
 ❖════════════════════════════════════════════❖
 **`)
    message.author.sendEmbed(embed)
@@ -287,7 +287,7 @@ Muted لاعطاء لاعب ميوت يجب عمل رتبة بأسم
    }); 
  client.on("message", message => {
 	var prefix = "2";
-if (message.content === (prefix + "help-games")) {
+if (message.content === (prefix + "help-music")) {
   const embed = new Discord.RichEmbed() 
       .setColor("RANDOM")
       .setDescription(`**
@@ -347,6 +347,12 @@ if (message.content === (prefix + "help-games")) {
 ❖ ${prefix}فوائد ونصائح ➾ هل تعلم
 
 ❖ ${prefix}يعطيك عقابات قاسية ➾ عقاب 
+
+❖ ${prefix}لعبة زواج ➾ زواج
+
+❖ ${prefix}slots ➾ لعبة الفواكه العشوائية
+
+❖ ${prefix}8ball ➾ لعبة كره البيلياردو
 
 ❖════════════════════════════════════════════❖
 **`)
@@ -3759,7 +3765,7 @@ Server id: __${guild.id}__
 Server Count: __${guild.memberCount}__**`)
 }); //Codes
 client.on('guildDelete', guild => {
-  client.channels.get("590332490460299299").send(`❎ **${client.user.tag} طلع من سيرفر
+  client.channels.get("590332490460299299").send(`❎ **${client.user.tag} خرج من السيرفر
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__
 Server id: __${guild.id}__ 
