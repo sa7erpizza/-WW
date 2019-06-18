@@ -109,7 +109,7 @@ if (message.content === (prefix + "soon")) {
 
 5 • قريبا الرد التلقائي
 
-6 • فيه الترحيب باالاعضاء
+6 • الترحيب والمغادرة
 
 7 • البوت 24/24 ساعة
 
@@ -2685,6 +2685,26 @@ member.guild.fetchInvites().then(guildInvites => {
   });
   }
 });
+
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField('**:heartpulse:  | الاسم :  **',`${member}`)
+        .addField('**اهلاً بك في السيرفر استمتع**' , `${member}`)
+        .addField(':comet: **معلومات :**', "**[" + `:id: : ${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`[ __${member.guild.memberCount}__ ]`)
+                                    
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
@@ -3989,5 +4009,20 @@ client.on('message' , message => {
     return;
 }
 });
+
+    client.on('guildMemberRemove', member => {
+        var embed = new Discord.RichEmbed()
+        .setAuthor(member.user.username, member.user.avatarURL)
+        .setThumbnail(member.user.avatarURL)
+        .setTitle(`**${member.user.tag} لقد غادر اللاعب**`)
+        .setDescription(`**:rose: نتمني زيارته مجددا :rose:**`)
+        .addField('**:bust_in_silhouette:   تبقي**',`**[ __${member.guild.memberCount}__ ]**`,true)
+        .setColor('RANDOM')
+        .setFooter(`2.B Bot`, ' https://cdn.discordapp.com/attachments/588396521213526036/590669612132073482/image.png')
+    
+    var channel =member.guild.channels.find('name', 'welcome')
+    if (!channel) return;
+    channel.send({embed : embed});
+    })
 
 client.login(process.env.BOT_TOKEN)
