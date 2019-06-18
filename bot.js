@@ -66,7 +66,7 @@ client.on("message", message => {
 
 ❖═══════════════ اختر من فضلك ═══════════════❖
  
-❖ soon
+❖ 2help-info ➾ مميزات البوت :dark_sunglasses: 
 
 ❖ 2help-puplic ➾ اوامر عامة :comet:
 
@@ -99,34 +99,30 @@ if (message.content === (prefix + "soon")) {
 
 ❖═══════════════ • المميزات • ═══════════════❖
 
-1 • يتميز البوت بالعديد من الاومر العاب - عامة - ادرية
+1 •  يتميز البوت بأوامر ادمنيه - عامة -اغاني - العاب
 
-2 • اكثر من 20 لعبة
+2 • 
 
 3 • يتم التحديث وصيانة البوت باستمرار
 
 4 • دعم فني سريع الرد
 
-5 • يوجد بالبوت رد تلقائي
+5 • قريبا الرد التلقائي
 
-6 • الترحيب والمغادره
+6 • فيه الترحيب باالاعضاء
 
-7 • سيكون البوت بطيئ بعض الشئ ذلك لانه ليس مرفوع علي خادم سيتم رفعه علي خادم بأسرع وقت
+7 • البوت 24/24 ساعة
 
-8 • سنتقبل اقتراحاتكم او المشاكل البوت عبر هذا الامر
-• !!OWSEND
+8 • 
 
-9 • يتم تفقد اوامر البوت والمشاكل فيه يوميا
-
-10 •  حماية من النشر
-ADMINISTRATOR اللي يقدر ينشر سيرفرات يجب ان يكون معه خاصية			   
+9 • يتم تفقد اوامر البوت والمشاكل فيه يوميا		   
 ══════════════════════════════════════════
 
-• لاضافة البوت : https://discordapp.com/oauth2/authorize?client_id=487367967726764042&permissions=8&scope=bot
-• او الامر : !!inv
+• لاضافة البوت : https://discordapp.com/api/oauth2/authorize?client_id=590110610365087745&permissions=8&scope=bot
+• 2inv : او الامر
 
-• سيرفر الدعم الفني للبوت : https://discord.gg/EYEG2W2
-• او الامر : !!support
+• سيرفر الدعم الفني للبوت : https://discord.gg/rWhAVBw
+• 2support : او الامر
 
 • واخيرا نتمني ان يعجبكم البوت , وعام دراسي سعيد , ومع تحيات اصحاب البوت
 
@@ -512,7 +508,7 @@ client.on('message', function(msg) {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO 3bker Community ©`` ')
+            .setTitle('``INFO 2.B`` ')
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
@@ -522,7 +518,7 @@ client.on('message', function(msg) {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ ! ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | 3bker')
+			      .setFooter('2.B Bot')
     })
 }
 });
@@ -609,7 +605,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: '3bker Community ©\'s translator',
+                  name: '2.B Bot\'s translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
@@ -620,7 +616,7 @@ client.on('message', message => {
                 timestamp: new Date(),
                 footer: {
                   icon_url: client.user.avatarURL,
-                  text: "3bker Community ©"
+                  text: "2.B Bot"
                 }
             }}
             )
@@ -959,7 +955,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription(':mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By : 3bker")
+     .setFooter("By : 2.B Bot")
                                                 
 
 message.channel.send(embed);
@@ -1004,7 +1000,7 @@ if(message.content.startsWith('2bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "3bker Community ©";
+let copy = "2.B Bot";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
 msg.react('✅')
@@ -2112,7 +2108,7 @@ client.on('guildCreate', guild => {
      .setTitle('Click Here To Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591')
   .setDescription(`**
-  New Server Add 3bker Community © ?
+  New Server Add 2.B Bot ?
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
 client.channels.get("474127377245667328").sendEmbed(embed)
@@ -2123,7 +2119,7 @@ client.on('guildDelete', guild => {
      .setTitle('Click Here To Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591')
   .setDescription(`**
-  Server Kicked 3bker Community © :cry:
+  Server Kicked 2.B Bot :cry:
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
 client.channels.get("474127377245667328").sendEmbed(embed)
@@ -2501,7 +2497,7 @@ const cuttweet = [     'كت تويت ‏| تخيّل لو أنك سترسم ش�
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
- .addField('3bker Community ©' ,
+ .addField('2.B Bot' ,
   `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
@@ -2756,7 +2752,7 @@ client.on('message', message => {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
  .setThumbnail(message.author.avatarURL) 
-.addField('3bker Community ©' ,
+.addField('2.B Bot' ,
 `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[38ab] Send By: ' + message.author.username)
@@ -2952,7 +2948,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-					.setFooter("3bker Community ©")
+					.setFooter("2.B Bot")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 					// eslint-disable-next-line max-depth
