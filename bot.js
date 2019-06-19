@@ -50,7 +50,7 @@ client.on('ready', function(){
     }, ms);
 
 })
-
+//*help*//
 client.on("message", message => {
 	var prefix = "2";
  if (message.content === (prefix + "help")) {
@@ -433,7 +433,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
 message.channel.send(`**${message.author.username}, your :credit_card: balance is \`\`${userData.credits}\`\`.**`);
 }
 });
-
+//puplic
 client.on('message', async message => {
     let amount = 250;
     if(message.content.startsWith(prefix + "daily")) {
