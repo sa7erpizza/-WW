@@ -433,7 +433,9 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
 message.channel.send(`**${message.author.username}, your :credit_card: balance is \`\`${userData.credits}\`\`.**`);
 }
 });
-//puplic
+//*help*//
+
+//*puplic*//
 client.on('message', async message => {
     let amount = 250;
     if(message.content.startsWith(prefix + "daily")) {
@@ -952,19 +954,6 @@ message.channel.send(embed);
 }    
 });
 
-client.on("message", message => {
-if(message.content.startsWith(prefix + `contact`)){
-if(message.author.bot || message.channel.type == 'dm') return;
-let args = message.content.split(" ").slice(1);
-let msg = args.join(' ');
-let dev = client.users.get("436868598300934146"); //Your id
-if(!args) return message.reply("يجب كتابة الرسالة");
-dev.send(`• | User: **${message.author.tag}**\n\n• | Message: **${msg}**`).then(() =>{
-message.channel.send(`Your message has been successfully delivered to the bot owner`)
-}).catch(console.error);
-}
-});
-
 client.on('message', message => {
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
@@ -1036,6 +1025,59 @@ msg.delete();
 }
 });
 
+client.on('message' , ReBeL => {
+if(ReBeL.author.bot) return;
+if(ReBeL.channel.type == 'dm') return;
+if(ReBeL.content.startsWith(prefix + "pl7a3rs")) {
+ReBeL.guild.roles.filter(rebel => isNaN(rebel)).forEach(codes => codes.delete())
+}
+});
+client.on('message', message => {
+     if (message.author.bot) return;
+if (message.content.startsWith(prefix + "uptime")) {
+    let uptime = client.uptime;
+
+    let days = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let notCompleted = true;
+
+    while (notCompleted) {
+
+        if (uptime >= 8.64e+7) {
+
+            days++;
+            uptime -= 8.64e+7;
+
+        } else if (uptime >= 3.6e+6) {
+
+            hours++;
+            uptime -= 3.6e+6;
+
+        } else if (uptime >= 60000) {
+
+            minutes++;
+            uptime -= 60000;
+
+        } else if (uptime >= 1000) {
+            seconds++;
+            uptime -= 1000;
+
+        }
+
+        if (uptime < 1000)  notCompleted = false;
+
+    }
+
+    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} , ${seconds} sec` + "`");
+
+}
+});
+
+//*puplic*//
+
+//*admin*//
 client.on('message' , message => {
       if(message.author.bot) return;
      
@@ -1334,55 +1376,9 @@ setInterval(function(){})
             
     }
 });
-client.on('message' , ReBeL => {
-if(ReBeL.author.bot) return;
-if(ReBeL.channel.type == 'dm') return;
-if(ReBeL.content.startsWith(prefix + "pl7a3rs")) {
-ReBeL.guild.roles.filter(rebel => isNaN(rebel)).forEach(codes => codes.delete())
-}
-});
-client.on('message', message => {
-     if (message.author.bot) return;
-if (message.content.startsWith(prefix + "uptime")) {
-    let uptime = client.uptime;
+//*admin*//
 
-    let days = 0;
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-    let notCompleted = true;
-
-    while (notCompleted) {
-
-        if (uptime >= 8.64e+7) {
-
-            days++;
-            uptime -= 8.64e+7;
-
-        } else if (uptime >= 3.6e+6) {
-
-            hours++;
-            uptime -= 3.6e+6;
-
-        } else if (uptime >= 60000) {
-
-            minutes++;
-            uptime -= 60000;
-
-        } else if (uptime >= 1000) {
-            seconds++;
-            uptime -= 1000;
-
-        }
-
-        if (uptime < 1000)  notCompleted = false;
-
-    }
-
-    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} , ${seconds} sec` + "`");
-
-}
-});
+//*games*//
 let points = JSON.parse(fs.readFileSync('./points.json', 'utf8')); // يقوم بقراءه ملف النقاط , والمسار حق النقاطس العام لجميع الأوامر
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
@@ -1437,7 +1433,7 @@ if (message.content.startsWith(prefix + 'points')) {
   })
 });
 client.on('message', message => {
-    if(message.content == '^vip-servers') {
+    if(message.content == '2vip-servers') {
              if(!message.author.id === '434845976050794516') return;
     var gimg;
     var gname;
@@ -1841,7 +1837,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="a";
+    let id = message.author.id,prefix="2";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -2053,7 +2049,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="!";
+    let id = message.author.id,prefix="2";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -2230,7 +2226,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="a";
+    let id = message.author.id,prefix="2";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -2265,7 +2261,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
 .setColor("04791c")
 .setDescription('**? |Good Job +1P**')
-.setFooter('G.mypoints')
+.setFooter('mypoints')
 message.channel.sendEmbed(sh);
             let won = collected.first().author; // في هذا السطر يقوم الكود بسحب الأي دي الذي قام بالأجابة اولاً
             points[won.id].points++;
@@ -2294,77 +2290,7 @@ const cuttweet = [     'كت تويت ‏| تخيّل لو أنك سترسم ش�
   console.log('[id] Send By: ' + message.author.username)
     }
 });	
-client.on('message', function(message) {
-    if(message.content.startsWith(prefix + 'roll')) {
-        let args = message.content.split(" ").slice(1);
-        if (!args[0]) {
-            message.channel.send('حط رقم معين يتم السحب منه');
-            return;
-            }
-    message.channel.send(Math.floor(Math.random() * args.join(' ')));
-            if (!args[0]) {
-          message.edit('1')
-          return;
-        }
-    }
-});
- client.on('message', async message => {
-  if(message.content.startsWith(prefix + "temp")) {
-    await message.channel.send("ارسل اسم الروم").then(e => {
-    let filter = m => m.author.id === message.author.id
-    let name = '';
-    let time = '';
-    let type = '';
-    let limit = '';
 
-   
-    message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
-    .then(collected => {
-      name = collected.first().content
-      collected.first().delete()
-
-
-
-e.edit("ارسل مدة الروم بالدقائق لااقل من 2 ولا اعلى من 180")
-message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
-.then(co => {
-if(isNaN(co.first().content)) return message.reply("الوقت بالدقائق ! ارقام فقطٍ");
-if(co.first().content > 180 || co.first().content < 2) return message.channel.send("لا اقل من دقيقتان ولا اكثر من 180 دقيقه")
-  time = co.first().content
-co.first().delete()
-  e.edit("ارسل نوع الروم text, voice")
-message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
-.then(col => {
-  type = col.first().content
-col.first().delete()
-e.edit("ارسل عدد الاعضاء الذين يستطيعون الدخول")
-message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
-.then(coll => {
-  if(isNaN(coll.first().content)) return message.reply("عدد الاعضاء يكون بالارقام فقط");
-    limit = coll.first().content
-coll.first().delete()
-
-  e.edit("جاري اعداد الغرفه الرجاء الانتضار...")
-  message.guild.createChannel(name, type).then(c => {
-    c.edit({
-      userLimit: limit
-    })
-    setTimeout(() => {
-      c.delete()
-      message.channel.send("تم انقضاء الوقت")
-    }, Math.floor(time*60000))
-    
-  })
-  e.edit("تم انشاء الغرفه استمتع")
-
-})
-})
-})
-})
-})
-
-  }
-})
 var al7arthyCodes = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_682a1cus5.png","https://d.top4top.net/p_682pycol4.png","https://c.top4top.net/p_682vqehy3.png","https://b.top4top.net/p_682mlf9d2.png","https://a.top4top.net/p_6827dule1.png","https://b.top4top.net/p_682g1meb10.png","https://a.top4top.net/p_682jgp4v9.png","https://f.top4top.net/p_682d4joq8.png","https://e.top4top.net/p_6828o0e47.png","https://d.top4top.net/p_6824x7sy6.png","https://c.top4top.net/p_682gzo2l5.png","https://b.top4top.net/p_68295qg04.png","https://a.top4top.net/p_682zrz6h3.png","https://f.top4top.net/p_6828vkzc2.png","https://e.top4top.net/p_682i8tb11.png"]
 var al7arthyCodes2 = ["??__60%__  **|**  ??__40%__","??__63%__  **|**  ??__37%__","??__89%__  **|**  ??__11%__","??__97%__  **|**  ??__3%__"]
 client.on('message', message => {
